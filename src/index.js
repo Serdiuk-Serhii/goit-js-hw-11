@@ -10,7 +10,7 @@ const inputEl = document.querySelector('input');
 const galleryEl = document.querySelector('.gallery');
 const btnLoadMoreEl = document.querySelector('.load-more');
 
-const baseUrl = 'https://pixabay.com/api';
+const baseUrl = 'https://pixabay.com/api/';
 const apiKey = '34936105-707dad1b86922b8a55c51c1b9';
 const baseParam ='image_type=photo&orientation=horizontal&safesearch=true&per_page=40';
 let page = 0;
@@ -28,7 +28,7 @@ function handleSubmit(event) {
   qValue = inputEl.value;
   page = 1;
   console.log(qValue);
-  fetchImg(`${baseUrl}/?key=${apiKey}&q=${qValue}&${baseParam}&page=${page}`)
+  fetchImg(`${baseUrl}?key=${apiKey}&q=${qValue}&${baseParam}&page=${page}`)
     .then(data => {
       if (data.total === 0) {
         return Notiflix.Notify.failure(
