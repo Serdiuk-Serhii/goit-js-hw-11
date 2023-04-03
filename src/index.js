@@ -9,6 +9,7 @@ const formEl = document.querySelector('#search-form');
 const inputEl = document.querySelector('input');
 const galleryEl = document.querySelector('.gallery');
 const btnLoadMoreEl = document.querySelector('.load-more');
+
 const baseUrl = 'https://pixabay.com/api';
 const apiKey = '34936105-707dad1b86922b8a55c51c1b9';
 const baseParam =
