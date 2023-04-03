@@ -1,9 +1,8 @@
-// import axios from "axios";
+import axios from "axios";
 
 export async function fetchImg(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
+    const response = await axios.get(url);
+    return response.data;
 
     // return fetch(url).then(response => {
     //     if (!response.ok) {
