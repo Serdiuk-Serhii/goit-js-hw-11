@@ -51,6 +51,7 @@ function onBtnLoadMoreClick() {
   fetchImg(`${baseUrl}?key=${apiKey}&q=${qValue}&${baseParam}&page=${page}`)
     .then(data => {
       galleryEl.insertAdjacentHTML('beforeend', createCards(data.hits));
+      simplelightbox.refresh();
       page += 1;
       if (data.hits.length < 40) {
         Notiflix.Notify.info(
