@@ -12,8 +12,7 @@ const btnLoadMoreEl = document.querySelector('.load-more');
 
 const baseUrl = 'https://pixabay.com/api';
 const apiKey = '34936105-707dad1b86922b8a55c51c1b9';
-const baseParam =
-  'image_type=photo&orientation=horizontal&safesearch=true&per_page=40';
+const baseParam ='image_type=photo&orientation=horizontal&safesearch=true&per_page=40';
 let page = 0;
 let qValue = null;
 let simplelightbox = null;
