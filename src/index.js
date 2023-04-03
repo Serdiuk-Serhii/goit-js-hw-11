@@ -29,7 +29,7 @@ function handleSubmit(event) {
   qValue = inputEl.value;
   page = 1;
   console.log(qValue);
-  fetchImg(`${baseUrl}?key=${apiKey}&q=${qValue}&${baseParam}&page=${page}`)
+  fetchImg(`${baseUrl}/?key=${apiKey}&q=${qValue}&${baseParam}&page=${page}`)
     .then(data => {
       if (data.total === 0) {
         return Notiflix.Notify.failure(
