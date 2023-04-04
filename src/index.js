@@ -25,12 +25,20 @@ btnLoadMoreEl.classList.add('visually-hidden');
 
 function handleSubmit(event) {
   event.preventDefault();
-  qValue = inputEl.value;
+  qValue = inputEl.value.trim();
   page = 1;
   console.log(qValue);
+  if (qValue === '') {
+    return Notiflix.Notify.failure(
+          'Please, fill in the search field'
+        );
+  }
   fetchImg(`${baseUrl}?key=${apiKey}&q=${qValue}&${baseParam}&page=${page}`)
     .then(data => {
       if (data.total === 0) {
+        inputEl.value = '';
+        galleryEl.innerHTML = '';
+        btnLoadMoreEl.classList.add('visually-hidden');
         return Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.'
         );
@@ -53,7 +61,7 @@ function onBtnLoadMoreClick() {
       galleryEl.insertAdjacentHTML('beforeend', createCards(data.hits));
       simplelightbox.refresh();
       page += 1;
-      if (data.hits.length < 40) {
+      if (data.hits.length < 40 || Number.parseInt(data.totalHits / 40) === page) {
         Notiflix.Notify.info(
           "We're sorry, but you've reached the end of search results."
         );
@@ -71,3 +79,5 @@ function onElementOfGalleryClick(event) {
     return;
   }
 }
+
+
